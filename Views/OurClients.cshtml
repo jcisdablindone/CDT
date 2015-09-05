@@ -4,3 +4,22 @@
 }
 
 @Html.Partial("Navigation")
+
+
+<div id="page" class="container">
+    <div class="title">
+        <h2>@Model.Content.GetPropertyValue("heading")</h2>
+        <p><br />@Model.Content.GetPropertyValue("headingText")</p>
+    </div>
+
+    @foreach (var child in Model.Content.Children()) {
+
+        <p><strong>Job Loacation : @child.GetPropertyValue("heading")</strong> <br /><br /></p>
+        
+        string test = child.GetPropertyValue("headingText").ToString().Replace("\n", "<br/>");
+        
+        <p>@Html.Raw(test)</p>
+    }
+
+
+</div>

@@ -2,4 +2,28 @@
 @{
     Layout = "Layout_Master.cshtml";
 }
+
+@{
+  
+    var about = Model.Content;
+    List<string> preList = about.GetPropertyValue("content").ToString().Split('\n').ToList();
+    
+      
+}
 @Html.Partial("Navigation")
+
+<div id="page" class="container">
+    <div class="title">
+        <h2>@about.GetPropertyValue("heading")</h2>
+    </div>
+    <p>@about.GetPropertyValue("headingText")</p>
+    <p><br />@about.GetPropertyValue("contentHeading")</p>
+
+    <ul>
+        @foreach (string item in preList) 
+        {
+        <li>@item</li>
+        }
+        
+    </ul>
+</div>

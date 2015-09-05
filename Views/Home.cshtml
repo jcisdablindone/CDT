@@ -18,7 +18,7 @@
             <span class="byline">@Model.Content.GetPropertyValue("bannerText")</span>
         </div>
         <ul class="actions">
-            <li><a href="quotes.html" class="button">@Model.Content.GetPropertyValue("buttonText")</a></li>
+            <li><a href="@root.DescendantsOrSelf("Quote").First().Url" class="button">@Model.Content.GetPropertyValue("buttonText")</a></li>
         </ul>
     </div>
 </div>
